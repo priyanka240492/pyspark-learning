@@ -1,4 +1,4 @@
-## ✅ Pre-Requisites
+## ✅ Pre-Requisites to run spark locally
 
 ### 1. Install Java (JDK)
 
