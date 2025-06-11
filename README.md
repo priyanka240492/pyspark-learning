@@ -53,3 +53,6 @@
   ```
   %SPARK_HOME%\bin
   ```
+### 3. Avoid Mixing Version Mismatches
+
+Ensure that the PySpark version installed via `pip` is identical to the Apache Spark distribution being used. For instance, if `pyspark==4.0.0` is installed, the corresponding Apache Spark version should also be `4.0.0`. Version mismatches between the Python and JVM components can lead to runtime issues such as `Py4JError` due to internal API incompatibilities.
