@@ -1,0 +1,38 @@
+Error-1:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+means that your Git repo doesn't yet have a remote named origin set up.
+
+✅ To Fix It
+
+You need to add the remote manually using:
+git remote add origin <your-remote-repo-url>
+
+Then push your main branch:
+git push -u origin main
+
+Error-2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+error: failed to push some refs to 'https://github.com/priyanka240492/pyspark-learning.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+The remote repo on GitHub already has some commits (like a README.md or .gitignore) that your local branch doesn’t have, and Git is blocking the push to prevent overwriting them.
+
+✅ To Fix This Safely
+
+Step 1: Pull the remote changes first. This will merge the remote main into your local main:
+git pull origin main --allow-unrelated-histories
+
+--allow-unrelated-histories is needed if your local repo was initialized independently of the GitHub one.
+
+You may be prompted to resolve a merge commit — just save and exit the editor if asked.
+
+Step 2: Push your local branch again:
+git push -u origin main
